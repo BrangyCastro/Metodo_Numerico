@@ -13,14 +13,14 @@
   </head>
   <body>
         <nav class="navbar navbar-expand-lg  navbar-dark bg-dark">
-            <span class="navbar-brand mb-0 h1">Metodos de Numericos</span>
+            <span class="navbar-brand mb-0 h1">Métodos Numéricos</span>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav mr-auto">
                       <li class="nav-item active">
-                        <a class="nav-link" href="./index.html">Biseccion <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="./index.html">Bisección <span class="sr-only">(current)</span></a>
                       </li>
                     </ul>
                     <span class="navbar-text">
@@ -30,38 +30,50 @@
         </nav>
     <div class="container">
         <div class="row">
-                <div class="input-group mb-3" style="padding-top: 20px">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="basic-addon1">Funcion</span>
-                    </div>
-                    <input id="txtFuncion" type="text" class="form-control" placeholder="x^2-3x+3" aria-label="Username" aria-describedby="basic-addon1">
-                </div>    
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="basic-addon1">Xa</span>
-                    </div>
-                    <input id="txtXa" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
-                </div>  
-                <div class="input-group mb-3">
-                    <div class="input-group-prepend">
-                      <span class="input-group-text" id="basic-addon1">Xb</span>
-                    </div>
-                    <input id="txtXb" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
-                </div>   
-                <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                          <span class="input-group-text" id="basic-addon1">N° Interacciones</span>
-                        </div>
-                        <input id="txtInteracion" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
-                    </div>  
-                <div class="input-group mb-3">
-                    <button type="button" class="btn btn-success" onclick="verificarRaiz()" >Calcular</button>
-                    <button style="margin-left: 20px" type="button" class="btn btn-warning" onclick="limpiar()">Limpiar</button>
-                </div>      
+          <div class="col">
+              <div class="input-group mb-3" style="padding-top: 20px">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Funcion</span>
+                  </div>
+                  <input id="txtFuncion" type="text" class="form-control" placeholder="x^2-3x+3" aria-label="Username" aria-describedby="basic-addon1">
+              </div>    
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Xa</span>
+                  </div>
+                  <input id="txtXa" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+              </div>  
+              <div class="input-group mb-3">
+                  <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">Xb</span>
+                  </div>
+                  <input id="txtXb" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+              </div>   
+              <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon1">N° Interacciones</span>
+                      </div>
+                      <input id="txtInteracion" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                  </div>  
+              <div class="input-group mb-3">
+                  <button type="button" class="btn btn-success" onclick="verificarRaiz()" >Calcular</button>
+                  <button style="margin-left: 20px" type="button" class="btn btn-warning" onclick="limpiar()">Limpiar</button>
+              </div>   
+          </div>
+          <div class="col">
+              <div class="card" style="margin-top: 20px; margin-bottom: 20px">
+                  <div class="card-body">
+                    <h5 class="card-title">Método de Bisección</h5>
+                    <p class="card-text">Es un algoritmo de búsqueda de raíces que trabaja dividiendo el intervalo a la mitad y seleccionando el subintervalo que tiene la raíz.</p>
+                    <a href="https://es.wikipedia.org/wiki/M%C3%A9todo_de_bisecci%C3%B3n" class="card-link">wikipedia</a>
+                  </div>
+                </div>
+          </div>
+                   
         </div>
     </div>
-    <table class="table" id="datos">
-        <thead>
+    <table class="table table-striped" id="datos">
+        <thead class="thead-dark">
           <tr>
             <th scope="col">#</th>
             <th scope="col">Xa</th>

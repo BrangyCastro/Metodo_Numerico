@@ -90,13 +90,13 @@ function interacion(){
             tbCliente.innerHTML += `
                 <tr>
                     <td>${contador}</td>
-                    <td>${xa}</td>
-                    <td>${xb}</td>
+                    <td>${financial(xa)}</td>
+                    <td>${financial(xb)}</td>
                     <td>${xr}</td>
-                    <td>${fxa}</td>
-                    <td>${fxr}</td>
-                    <td>${fxafxr}</td>
-                    <td>${ep}</td>
+                    <td>${financial(fxa)}</td>
+                    <td>${financial(fxr)}</td>
+                    <td>${signoMasMenos(fxafxr)}</td>
+                    <td>${financial(ep)}</td>
                 </tr>
                 `
                 if(fxafxr > 0){
@@ -139,13 +139,13 @@ function interacion(){
             tbCliente.innerHTML += `
                 <tr>
                     <td>${contador}</td>
-                    <td>${xa}</td>
-                    <td>${xb}</td>
+                    <td>${financial(xa)}</td>
+                    <td>${financial(xb)}</td>
                     <td>${xr}</td>
-                    <td>${fxa}</td>
-                    <td>${fxr}</td>
-                    <td>${fxafxr}</td>
-                    <td>${ep}</td>
+                    <td>${financial(fxa)}</td>
+                    <td>${financial(fxr)}</td>
+                    <td>${signoMasMenos(fxafxr)}</td>
+                    <td>${financial(ep)}</td>
                 </tr>
                 `
                 if(fxafxr > 0){
@@ -166,4 +166,16 @@ function limpiar(){
     document.getElementById('txtXa').value = "";
     document.getElementById('txtXb').value = "";
     document.getElementById('txtInteracion').value = "";
+}
+
+function financial(x) {
+    return Number.parseFloat(x).toFixed(6);
+  }
+
+function signoMasMenos(x){
+    if(x < 0){
+        return "-";
+    }else{
+        return "+";
+    }
 }
