@@ -20,7 +20,7 @@
             <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav mr-auto">
                       <li class="nav-item active">
-                        <a class="nav-link" href="./index.html">Bisección <span class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="./Biseccion.html">Bisección <span class="sr-only">(current)</span></a>
                       </li>
                     </ul>
                     <span class="navbar-text">
@@ -33,19 +33,19 @@
           <div class="col">
               <div class="input-group mb-3" style="padding-top: 20px">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">Funcion</span>
+                    <span class="input-group-text" id="basic-addon1">Funcion<span style="color: red">*</span></span>
                   </div>
                   <input id="txtFuncion" type="text" class="form-control" placeholder="x^2-3x+3" aria-label="Username" aria-describedby="basic-addon1">
               </div>    
               <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">Xa</span>
+                    <span class="input-group-text" id="basic-addon1">Xa<span style="color: red">*</span></span>
                   </div>
                   <input id="txtXa" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
               </div>  
               <div class="input-group mb-3">
                   <div class="input-group-prepend">
-                    <span class="input-group-text" id="basic-addon1">Xb</span>
+                    <span class="input-group-text" id="basic-addon1">Xb<span style="color: red">*</span></span>
                   </div>
                   <input id="txtXb" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
               </div>   
@@ -53,7 +53,7 @@
                       <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon1">N° Interacciones</span>
                       </div>
-                      <input id="txtInteracion" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                      <input id="txtInteracion" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" placeholder="opcional">
                   </div>  
               <div class="input-group mb-3">
                   <button type="button" class="btn btn-success" onclick="verificarRaiz()" >Calcular</button>
@@ -61,13 +61,16 @@
               </div>   
           </div>
           <div class="col">
-              <div class="card" style="margin-top: 20px; margin-bottom: 20px">
+              <div class="card" style="margin-top: 20px; margin-bottom: 10px">
                   <div class="card-body">
                     <h5 class="card-title">Método de Bisección</h5>
                     <p class="card-text">Es un algoritmo de búsqueda de raíces que trabaja dividiendo el intervalo a la mitad y seleccionando el subintervalo que tiene la raíz.</p>
                     <a href="https://es.wikipedia.org/wiki/M%C3%A9todo_de_bisecci%C3%B3n" class="card-link">wikipedia</a>
                   </div>
                 </div>
+                <div class="alert alert-danger" role="alert">
+                    * Campos obligatorios..!!
+                  </div>
           </div>
                    
         </div>
@@ -94,7 +97,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="./index.js"></script>
+    <script src="./Biseccion.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 </body>
 </html>
