@@ -162,7 +162,7 @@ function llenarTabla(contador, xa, xb, xr, fxa, fxr, fxafxr, ep){
         <td>${financial(fxa)}</td>
         <td>${financial(fxr)}</td>
         <td>${signoMasMenos(fxafxr)}</td>
-        <td>${financial(ep)}</td>
+        <td>${financial(ep)+" %"}</td>
     </tr>
     `
 }
