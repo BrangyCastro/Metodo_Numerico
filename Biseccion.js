@@ -1,6 +1,5 @@
 // metodo de biseccion
 
-   
 var xa = 0;
 var xb = 0;
 var xr = 0;
@@ -171,4 +170,4 @@ function llenarTabla(contador, xa, xb, xr, fxa, fxr, fxafxr, ep){
 function soloNumeros(e){
 	var key = window.Event ? e.which : e.keyCode
 	return (key >= 48 && key <= 57)
-}
+}   
