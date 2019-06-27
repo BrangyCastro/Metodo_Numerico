@@ -11,15 +11,18 @@ var xrActual = 0;
 var xrAnterior = 0;
 var contador = 0;
 
-function datos(){
+var ep = "-";
+
+function validarCampos(){
+    var funcion = document.getElementById('txtFuncion').value;
     xa = document.getElementById('txtXa').value;
     xb = document.getElementById('txtXb').value;
-    xr = (parseFloat(xa) + parseFloat(xb))/2;
-    console.log(xr);
-}
 
-function errorP(){
-    toastr.error('Pagina en construcion', 'Error!');
+    if((funcion == "") || (xa == "") || (xb == "")){
+        toastr.error('Los campos no pueden quedar vacios', 'Error!');
+    }else{
+        verificarRaiz();
+    }
 }
 
 function verificarRaiz(){
@@ -58,52 +61,22 @@ function interacion(){
     xb = document.getElementById('txtXb').value;
     var interacion = document.getElementById('txtInteracion').value;
     var tbCliente = document.getElementById('tbDatos');
+    ep = "-";
     if(interacion == ""){
         tbCliente.innerHTML = '';
         do{
             contador++;
             if(xrAnterior == 0){
-                console.log(xa);
-                xr = (parseFloat(xa) + parseFloat(xb))/2;
-                xrAnterior = xr;
-                const evaluacion1 = math.parser();
-                evaluacion1.eval("f(x) = "+funcion);
-                fxa = evaluacion1.eval("f("+xa+")");
-    
-                const evaluacion2 = math.parser();
-                evaluacion2.eval("f(x) = "+funcion);
-                fxr = evaluacion2.eval("f("+xr+")");
-                fxafxr = fxa * fxr;
+                sinPorCiento(xa, xb, funcion);
             }else{
-                xr = (parseFloat(xa) + parseFloat(xb))/2;
-                xrActual = xr;
-                const evaluacion1 = math.parser();
-                evaluacion1.eval("f(x) = "+funcion);
-                fxa = evaluacion1.eval("f("+xa+")");
-                const evaluacion2 = math.parser();
-                evaluacion2.eval("f(x) = "+funcion);
-                fxr = evaluacion2.eval("f("+xr+")");
-                fxafxr = fxa * fxr;
-                var ep = Math.abs((xrActual-xrAnterior)/xrActual)*100;
-                xrAnterior = xr;            
+                conPorCiento(xa, xb, funcion);           
             }
-            tbCliente.innerHTML += `
-                <tr>
-                    <td>${contador}</td>
-                    <td>${financial(xa)}</td>
-                    <td>${financial(xb)}</td>
-                    <td>${xr}</td>
-                    <td>${financial(fxa)}</td>
-                    <td>${financial(fxr)}</td>
-                    <td>${signoMasMenos(fxafxr)}</td>
-                    <td>${financial(ep)}</td>
-                </tr>
-                `
-                if(fxafxr > 0){
-                    xa = xr
-                }else{
-                    xb = xr
-                } 
+            tbCliente.innerHTML += llenarTabla(contador, xa, xb, xr, fxa, fxr, fxafxr, ep);
+            if(fxafxr > 0){
+                xa = xr
+            }else{
+                xb = xr
+            } 
             
         }while(ep != 0);
         contador = 0;
@@ -113,46 +86,16 @@ function interacion(){
         do{
             contador++;
             if(xrAnterior == 0){
-                xr = (parseFloat(xa) + parseFloat(xb))/2;
-                xrAnterior = xr;
-                const evaluacion1 = math.parser();
-                evaluacion1.eval("f(x) = "+funcion);
-                fxa = evaluacion1.eval("f("+xa+")");
-    
-                const evaluacion2 = math.parser();
-                evaluacion2.eval("f(x) = "+funcion);
-                fxr = evaluacion2.eval("f("+xr+")");
-                fxafxr = fxa * fxr;
+                sinPorCiento(xa, xb, funcion);
             }else{
-                xr = (parseFloat(xa) + parseFloat(xb))/2;
-                xrActual = xr;
-                const evaluacion1 = math.parser();
-                evaluacion1.eval("f(x) = "+funcion);
-                fxa = evaluacion1.eval("f("+xa+")");
-                const evaluacion2 = math.parser();
-                evaluacion2.eval("f(x) = "+funcion);
-                fxr = evaluacion2.eval("f("+xr+")");
-                fxafxr = fxa * fxr;
-                var ep = Math.abs((xrActual-xrAnterior)/xrActual)*100;
-                xrAnterior = xr;            
+                conPorCiento(xa, xb, funcion);           
             }
-            tbCliente.innerHTML += `
-                <tr>
-                    <td>${contador}</td>
-                    <td>${financial(xa)}</td>
-                    <td>${financial(xb)}</td>
-                    <td>${xr}</td>
-                    <td>${financial(fxa)}</td>
-                    <td>${financial(fxr)}</td>
-                    <td>${signoMasMenos(fxafxr)}</td>
-                    <td>${financial(ep)}</td>
-                </tr>
-                `
-                if(fxafxr > 0){
-                    xa = xr
-                }else{
-                    xb = xr
-                }
+            tbCliente.innerHTML += llenarTabla(contador, xa, xb, xr, fxa, fxr, fxafxr, ep);
+            if(fxafxr > 0){
+                xa = xr
+            }else{
+                xb = xr
+            }
         }while(contador != interacion);
         contador=0;
         xrAnterior = 0;
@@ -178,4 +121,54 @@ function signoMasMenos(x){
     }else{
         return "+";
     }
+}
+
+function sinPorCiento(xa, xb, funcion){
+    xr = (parseFloat(xa) + parseFloat(xb))/2;
+    xrAnterior = xr;
+    const evaluacion1 = math.parser();
+    evaluacion1.eval("f(x) = "+funcion);
+    fxa = evaluacion1.eval("f("+xa+")");
+    const evaluacion2 = math.parser();
+    evaluacion2.eval("f(x) = "+funcion);
+    fxr = evaluacion2.eval("f("+xr+")");
+    fxafxr = fxa * fxr;
+
+    return xa, xb, xr, fxa, fxr, fxafxr, xrAnterior;
+}
+
+function conPorCiento(xa, xb, funcion){
+    xr = (parseFloat(xa) + parseFloat(xb))/2;
+    xrActual = xr;
+    const evaluacion1 = math.parser();
+    evaluacion1.eval("f(x) = "+funcion);
+    fxa = evaluacion1.eval("f("+xa+")");
+    const evaluacion2 = math.parser();
+    evaluacion2.eval("f(x) = "+funcion);
+    fxr = evaluacion2.eval("f("+xr+")");
+    fxafxr = fxa * fxr;
+    ep = Math.abs((xrActual-xrAnterior)/xrActual)*100;
+    xrAnterior = xr; 
+
+    return xa, xb, xr, fxa, fxr, fxafxr, ep, xrAnterior, xrActual;
+}
+
+function llenarTabla(contador, xa, xb, xr, fxa, fxr, fxafxr, ep){
+    return `
+    <tr>
+        <td>${contador}</td>
+        <td>${financial(xa)}</td>
+        <td>${financial(xb)}</td>
+        <td>${xr}</td>
+        <td>${financial(fxa)}</td>
+        <td>${financial(fxr)}</td>
+        <td>${signoMasMenos(fxafxr)}</td>
+        <td>${financial(ep)}</td>
+    </tr>
+    `
+}
+
+function soloNumeros(e){
+	var key = window.Event ? e.which : e.keyCode
+	return (key >= 48 && key <= 57)
 }

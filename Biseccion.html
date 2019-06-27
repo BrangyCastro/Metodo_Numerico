@@ -49,22 +49,22 @@
                                             <div class="input-group-prepend">
                                               <span class="input-group-text" id="basic-addon1">Xa<span style="color: red">*</span></span>
                                             </div>
-                                            <input id="txtXa" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                            <input id="txtXa" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" onKeyPress="return soloNumeros(event)">
                                         </div>  
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
                                               <span class="input-group-text" id="basic-addon1">Xb<span style="color: red">*</span></span>
                                             </div>
-                                            <input id="txtXb" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                            <input id="txtXb" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" onKeyPress="return soloNumeros(event)">
                                         </div>   
                                         <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                   <span class="input-group-text" id="basic-addon1">N° Interacciones</span>
                                                 </div>
-                                                <input id="txtInteracion" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" placeholder="opcional">
+                                                <input id="txtInteracion" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" placeholder="opcional" onKeyPress="return soloNumeros(event)">
                                             </div>  
                                         <div class="input-group mb-3">
-                                            <button type="button" class="btn btn-success" onclick="verificarRaiz()" >Calcular</button>
+                                            <button type="button" class="btn btn-success" onclick="validarCampos()" >Calcular</button>
                                             <button style="margin-left: 20px" type="button" class="btn btn-warning" onclick="limpiar()">Limpiar</button>
                                         </div>   
                                     </div>
