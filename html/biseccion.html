@@ -4,39 +4,40 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <script src="math.js" type="text/javascript"></script>
+    <script src="../math.js" type="text/javascript"></script>
+    <script src="../js/Biseccion.js" type="text/javascript"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
-    <title>Metodo de la Falsa posición</title>
+    <title>Metodo de Biseccion</title>
   </head>
   <body>
-        <nav class="navbar navbar-dark bg-dark">
-            <span class="navbar-brand mb-0 h1">Métodos Numéricos</span>
-            <a class="navbar-brand" href="https://github.com/BrangyCastro/Metodo_Numerico">
-                    <img src="./img/github.png" width="30" height="30" class="d-inline-block align-top" alt="">
-                    GitHub
-                  </a>
-            <span class="navbar-text">
-                    By: Brangy Castro
-            </span>  
-        </nav>
+      <nav class="navbar navbar-dark bg-dark">
+          <span class="navbar-brand mb-0 h1">Métodos Numéricos</span>
+          <a class="navbar-brand" href="https://github.com/BrangyCastro/Metodo_Numerico">
+                  <img src="../img/github.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                  GitHub
+                </a>
+          <span class="navbar-text">
+                  By: Brangy Castro
+          </span>  
+      </nav>
     <div class="container">
             <div class="card text-center" style="margin-top: 20px; margin-bottom: 20px">
                     <div class="card-header">
                       <ul class="nav nav-tabs card-header-tabs">
                         <li class="nav-item">
-                             <a class="nav-link" href="index.html">Inicio</a>
+                            <a class="nav-link" href="../index.html">Inicio</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="biseccion.html">Bisección</a>
+                          <a class="nav-link active" href="./biseccion.html">Bisección</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="falsaPosicion.html">Falsa posición</a>
+                          <a class="nav-link" href="./falsaPosicion.html">Falsa posición</a>
                         </li>
                         <li class="nav-item">
-                                <a class="nav-link active" href="newtonRaphson.html">Newton-Raphson</a>
+                            <a class="nav-link" href="./newtonRaphson.html">Newton-Raphson</a>
                         </li>
                       </ul>
                     </div>
@@ -51,10 +52,16 @@
                                         </div>    
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
-                                              <span class="input-group-text" id="basic-addon1">Xn<span style="color: red">*</span></span>
+                                              <span class="input-group-text" id="basic-addon1">Xa<span style="color: red">*</span></span>
                                             </div>
-                                            <input id="txtXn" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
+                                            <input id="txtXa" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" onKeyPress="return soloNumeros(event)">
                                         </div>  
+                                        <div class="input-group mb-3">
+                                            <div class="input-group-prepend">
+                                              <span class="input-group-text" id="basic-addon1">Xb<span style="color: red">*</span></span>
+                                            </div>
+                                            <input id="txtXb" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" onKeyPress="return soloNumeros(event)">
+                                        </div>   
                                         <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                   <span class="input-group-text" id="basic-addon1">N° Interacciones</span>
@@ -63,15 +70,15 @@
                                             </div>  
                                         <div class="input-group mb-3">
                                             <button type="button" class="btn btn-success" onclick="validarCampos()" >Calcular</button>
-                                            <button style="margin-left: 20px" type="button" class="btn btn-warning" onclick="limpiar()" >Limpiar</button>
+                                            <button style="margin-left: 20px" type="button" class="btn btn-warning" onclick="limpiar()">Limpiar</button>
                                         </div>   
                                     </div>
                                     <div class="col">
                                         <div class="card" style="margin-top: 20px; margin-bottom: 10px">
                                             <div class="card-body">
-                                              <h5 class="card-title">Método de Newton-Raphson</h5>
-                                              <p class="card-text">Es un algoritmo para encontrar aproximaciones de los ceros o raíces de una función real. También puede ser usado para encontrar el máximo o mínimo de una función, encontrando los ceros de su primera derivada.</p>
-                                              <a href="https://es.wikipedia.org/wiki/M%C3%A9todo_de_Newton" class="card-link">Wikipedia</a>
+                                              <h5 class="card-title">Método de Bisección</h5>
+                                              <p class="card-text">Es un algoritmo de búsqueda de raíces que trabaja dividiendo el intervalo a la mitad y seleccionando el subintervalo que tiene la raíz.</p>
+                                              <a href="https://es.wikipedia.org/wiki/M%C3%A9todo_de_bisecci%C3%B3n" class="card-link">wikipedia</a>
                                             </div>
                                           </div>
                                           <div class="alert alert-danger" role="alert">
@@ -87,10 +94,12 @@
             <thead class="thead-dark">
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Xn Actual</th>
-                <th scope="col">F(Xn)</th>
-                <th scope="col">F'(Xn)</th>
-                <th scope="col">Xn</th>
+                <th scope="col">Xa</th>
+                <th scope="col">Xb</th>
+                <th scope="col">Xr</th>
+                <th scope="col">F(Xa)</th>
+                <th scope="col">F(Xr)</th>
+                <th scope="col">F(Xa)F(Xr)</th>
                 <th scope="col">Error %</th>
               </tr>
             </thead>
@@ -103,7 +112,6 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="./newtonRaphson.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 </body>
 </html>
