@@ -29,10 +29,10 @@
                           <a class="nav-link" href="biseccion.html">Bisección</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link active" href="falsaPosicion.html">Falsa posición</a>
+                          <a class="nav-link" href="falsaPosicion.html">Falsa posición</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="newtonRaphson.html">Newton-Raphson</a>
+                                <a class="nav-link active" href="newtonRaphson.html">Newton-Raphson</a>
                         </li>
                       </ul>
                     </div>
@@ -47,16 +47,10 @@
                                         </div>    
                                         <div class="input-group mb-3">
                                             <div class="input-group-prepend">
-                                              <span class="input-group-text" id="basic-addon1">Xa<span style="color: red">*</span></span>
+                                              <span class="input-group-text" id="basic-addon1">Xn<span style="color: red">*</span></span>
                                             </div>
-                                            <input id="txtXa" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" onKeyPress="return soloNumeros(event)">
+                                            <input id="txtXn" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1">
                                         </div>  
-                                        <div class="input-group mb-3">
-                                            <div class="input-group-prepend">
-                                              <span class="input-group-text" id="basic-addon1">Xb<span style="color: red">*</span></span>
-                                            </div>
-                                            <input id="txtXb" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" onKeyPress="return soloNumeros(event)">
-                                        </div>   
                                         <div class="input-group mb-3">
                                                 <div class="input-group-prepend">
                                                   <span class="input-group-text" id="basic-addon1">N° Interacciones</span>
@@ -65,15 +59,15 @@
                                             </div>  
                                         <div class="input-group mb-3">
                                             <button type="button" class="btn btn-success" onclick="validarCampos()" >Calcular</button>
-                                            <button style="margin-left: 20px" type="button" class="btn btn-warning" onclick="limpiar()">Limpiar</button>
+                                            <button style="margin-left: 20px" type="button" class="btn btn-warning" onclick="limpiar()" >Limpiar</button>
                                         </div>   
                                     </div>
                                     <div class="col">
                                         <div class="card" style="margin-top: 20px; margin-bottom: 10px">
                                             <div class="card-body">
-                                              <h5 class="card-title">Método de la Falsa posición</h5>
-                                              <p class="card-text">Es un método iterativo de resolución numérica de ecuaciones no lineales. El método combina el método de bisección y el método de la secante.</p>
-                                              <a href="https://es.wikipedia.org/wiki/M%C3%A9todo_de_la_regla_falsa" class="card-link">Wikipedia</a>
+                                              <h5 class="card-title">Método de Newton-Raphson</h5>
+                                              <p class="card-text">Es un algoritmo para encontrar aproximaciones de los ceros o raíces de una función real. También puede ser usado para encontrar el máximo o mínimo de una función, encontrando los ceros de su primera derivada.</p>
+                                              <a href="https://es.wikipedia.org/wiki/M%C3%A9todo_de_Newton" class="card-link">Wikipedia</a>
                                             </div>
                                           </div>
                                           <div class="alert alert-danger" role="alert">
@@ -89,13 +83,10 @@
             <thead class="thead-dark">
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Xa</th>
-                <th scope="col">Xb</th>
-                <th scope="col">Xr</th>
-                <th scope="col">F(Xa)</th>
-                <th scope="col">F(Xb)</th>
-                <th scope="col">F(Xr)</th>
-                <th scope="col">F(Xa)F(Xr)</th>
+                <th scope="col">Xn Actual</th>
+                <th scope="col">F(Xn)</th>
+                <th scope="col">F'(Xn)</th>
+                <th scope="col">Xn</th>
                 <th scope="col">Error %</th>
               </tr>
             </thead>
@@ -108,7 +99,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="./falsaPosicion.js"></script>
+    <script src="./newtonRaphson.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 </body>
 </html>
