@@ -4,8 +4,6 @@
 var xa = 0;
 var xb = 0;
 var xr = 0;
-var xr1 = 0;
-var xr2 = 0;
 var fxa = 0;
 var fxr = 0;
 var fxb = 0;
@@ -138,9 +136,7 @@ function sinPorCiento(xa, xb, funcion){
     evaluacion3.eval("f(x) = "+funcion);
     fxb = evaluacion3.eval("f("+xb+")");
 
-    xr1 = (( parseFloat(xa)*fxb ) - ( parseFloat(xb)*fxa));
-    xr2 = (fxb-fxa);
-    xr = xr1 / xr2;
+    xr = (( parseFloat(xa)*fxb ) - ( parseFloat(xb)*fxa)) / ((fxb)-(fxa));
 
     xrAnterior = xr;
 
@@ -162,9 +158,8 @@ function conPorCiento(xa, xb, funcion){
     evaluacion3.eval("f(x) = "+funcion);
     fxb = evaluacion3.eval("f("+xb+")");
 
-    xr1 = (( parseFloat(xa)*fxb ) - ( parseFloat(xb)*fxa));
-    xr2 = (fxb-fxa);
-    xr = xr1 / xr2;
+    xr = (( parseFloat(xa)*fxb ) - ( parseFloat(xb)*fxa)) / ((fxb)-(fxa));
+    
     xrActual = xr;
 
     const evaluacion2 = math.parser();
