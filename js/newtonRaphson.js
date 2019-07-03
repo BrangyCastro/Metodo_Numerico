@@ -79,7 +79,7 @@ function interacion(){
                 conPorCiento(xn, funcion);           
             }
             xn = xnActual;
-            tbCliente.innerHTML += llenarTabla(contador, xn, fxn, fdxn, xnActual, ep);
+            tbCliente.innerHTML += llenarTabla(contador, xnAnterior, fxn, fdxn, xnActual, ep);
         }while(ep != 0);
         contador = 0;
         xnAnterior = 0;
@@ -93,7 +93,7 @@ function interacion(){
                 conPorCiento(xn, funcion);           
             }
             xn = xnActual;
-            tbCliente.innerHTML += llenarTabla(contador, xn, fxn, fdxn, xnActual, ep);
+            tbCliente.innerHTML += llenarTabla(contador, xnAnterior, fxn, fdxn, xnActual, ep);
         }while(contador != interacion);
         contador=0;
         xnAnterior = 0;
