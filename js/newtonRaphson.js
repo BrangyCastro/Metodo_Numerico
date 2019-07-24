@@ -1,9 +1,4 @@
 
-
-
-
-
-
 function derivada(){
     var funcion = document.getElementById('txtFuncion').value;
     console.log(funcion);
@@ -136,11 +131,7 @@ function conPorCiento(xn, funcion){
     fxn = h.eval({x: xn});
     fdxn = dh.eval({x: xn});
     ep = Math.abs(((xnActual-xnAnterior)/xnActual)*100);
-    xnActual = xn - (fxn / fdxn);
-    console.log(xnActual);
-    console.log(xnAnterior);
-    
-    
+    xnActual = xn - (fxn / fdxn);    
     xnAnterior = xn;
 
     return fxn, fdxn, xnActual, ep,xnAnterior;
