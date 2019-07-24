@@ -113,6 +113,7 @@ function financial(x) {
   }
 
 function sinPorCiento(xn, funcion){
+
     const h = math.parse(funcion);
     const x = math.parse('x');
     const dh = math.derivative(h, x);
@@ -127,17 +128,20 @@ function sinPorCiento(xn, funcion){
 }
 
 function conPorCiento(xn, funcion){
+
     const h = math.parse(funcion);
     const x = math.parse('x');
     const dh = math.derivative(h, x);
 
     fxn = h.eval({x: xn});
     fdxn = dh.eval({x: xn});
+    ep = Math.abs(((xnActual-xnAnterior)/xnActual)*100);
+    xnActual = xn - (fxn / fdxn);
+    console.log(xnActual);
+    console.log(xnAnterior);
+    
+    
     xnAnterior = xn;
-
-    xnActual = xnAnterior - (fxn / fdxn);
-
-    ep = Math.abs((xnActual-xnAnterior)/xnActual)*100;
 
     return fxn, fdxn, xnActual, ep,xnAnterior;
     
