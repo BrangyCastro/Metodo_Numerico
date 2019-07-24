@@ -33,13 +33,13 @@
                           <a class="nav-link" href="./biseccion.html">Bisección</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link active" href="./falsaPosicion.html">Falsa posición</a>
+                          <a class="nav-link" href="./falsaPosicion.html">Falsa posición</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="./newtonRaphson.html">Newton-Raphson</a>
                         </li>
                         <li class="nav-item">
-                          <a class="nav-link" href="./secante.html">Secante</a>
+                          <a class="nav-link active" href="./secante.html">Secante</a>
                           </li>
                       </ul>
                     </div>
@@ -65,7 +65,7 @@
                                             <input id="txtXb" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" onKeyPress="return soloNumeros(event)">
                                         </div>   
                                         <div class="input-group mb-3">
-                                                <div class="input-group-prepend"> 
+                                                <div class="input-group-prepend">
                                                   <span class="input-group-text" id="basic-addon1">N° Interacciones</span>
                                                 </div>
                                                 <input id="txtInteracion" type="text" class="form-control" aria-label="Username" aria-describedby="basic-addon1" placeholder="opcional" onKeyPress="return soloNumeros(event)">
@@ -78,9 +78,9 @@
                                     <div class="col">
                                         <div class="card" style="margin-top: 20px; margin-bottom: 10px">
                                             <div class="card-body">
-                                              <h5 class="card-title">Método de la Falsa posición</h5>
-                                              <p class="card-text">Es un método iterativo de resolución numérica de ecuaciones no lineales. El método combina el método de bisección y el método de la secante.</p>
-                                              <a href="https://es.wikipedia.org/wiki/M%C3%A9todo_de_la_regla_falsa" class="card-link">Wikipedia</a>
+                                              <h5 class="card-title">Método de la Secante</h5>
+                                              <p class="card-text">En análisis numérico el método de la secante es un método para encontrar los ceros de una función de forma iterativa.</p>
+                                              <a href="https://es.wikipedia.org/wiki/M%C3%A9todo_de_la_secante" class="card-link">Wikipedia</a>
                                             </div>
                                           </div>
                                           <div class="alert alert-danger" role="alert">
@@ -103,11 +103,9 @@
                 <th scope="col">#</th>
                 <th scope="col">Xa</th>
                 <th scope="col">Xb</th>
-                <th scope="col">Xr</th>
                 <th scope="col">F(Xa)</th>
                 <th scope="col">F(Xb)</th>
-                <th scope="col">F(Xr)</th>
-                <th scope="col">F(Xa)F(Xr)</th>
+                <th scope="col">Xr</th>
                 <th scope="col">Error %</th>
               </tr>
             </thead>
@@ -120,7 +118,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="../js/falsaPosicion.js"></script>
+    <script src="../js/secante.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
 </body>
 </html>

@@ -24,7 +24,7 @@ function validarCampos(){
     }else{
         verificarRaiz();
     }
-}
+} 
 
 function verificarRaiz(){
     var funcion = document.getElementById('txtFuncion').value;
